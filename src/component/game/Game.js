@@ -63,18 +63,23 @@ const Game = () => {
 
   const createSingleGame = () => {
     console.log("Creating single game called");
-    axios.post("/game", game).then(
-      (response) => {
-        //console.log(response.data);
-        getAllGamessFromServer();
+    axios
+      .post("/game", game)
+      .then(
+        (response) => {
+          //console.log(response.data);
+          getAllGamessFromServer();
+
+          message.success("Game Registered Successfully", 2);
+        },
+        (error) => {
+          console.log(error);
+          message.error("Game Creation Failed", 2);
+        }
+      )
+      .then(() => {
         resetGameData();
-        message.success("Game Registered Successfully", 2);
-      },
-      (error) => {
-        console.log(error);
-        message.error("Game Creation Failed", 2);
-      }
-    );
+      });
   };
 
   const editGameToServer = (gameId) => {
@@ -116,13 +121,16 @@ const Game = () => {
   };
 
   const resetGameData = () => {
-    setGame({
-      name: "",
-      url: "",
-      author: "",
-      id: 0,
+    return new Promise((resolve, reject) => {
+      setGame({
+        name: "",
+        url: "",
+        author: "",
+        id: 0,
+      });
+      resolve(game);
+      console.log("Game Data", game);
     });
-    console.log("After Reset", game);
   };
 
   const showDrawer = () => {

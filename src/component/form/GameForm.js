@@ -10,6 +10,7 @@ const GameForm = ({
   game,
 }) => {
   //console.log("Since Game Changed, Game form Re rendered", game);
+  const [form] = Form.useForm();
 
   return (
     <div>
@@ -28,6 +29,7 @@ const GameForm = ({
               onClick={(e) => {
                 onClose();
                 addGameToServer(e);
+                form.resetFields();
               }}
               type="primary"
             >
@@ -37,6 +39,7 @@ const GameForm = ({
         }
       >
         <Form
+          form={form}
           key={game.id}
           layout="vertical"
           initialValues={{

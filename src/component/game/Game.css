@@ -1,0 +1,42 @@
+.game-container {
+  margin-left: 40px;
+  margin-right: 40px;
+  text-align: center;
+}
+
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  font-style: bold;
+  height: 80px;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.title-container h1 {
+  margin-left: 100px;
+  margin-top: 29px;
+  display: block;
+  font-size: 2em;
+  margin-block-start: 10px;
+  margin-block-end: 0px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+.list-container {
+  margin-top: 20px;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+.btn-drawer {
+  margin-top: 24px;
+}
+
+.ant-card-body {
+  padding: 0px;
+}
